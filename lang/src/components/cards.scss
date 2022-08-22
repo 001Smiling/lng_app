@@ -1,0 +1,20 @@
+.card__container {
+    height: 350px;
+    width: 300px;
+    color: black;
+    border: 2px solid rgba(255, 153, 0, 0.534);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 153, 0, 0.808);
+    font-size: 30px;
+}
+
+.card__star {
+    padding: 10px 0px 0px 0px;
+    width: 30px;
+    &:hover {
+        width: 32px;
+    }
+    &:active {
+        width: 35px;
+    }
+}

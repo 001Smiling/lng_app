@@ -1,0 +1,29 @@
+.header {
+    height: 100px;
+    background-color: rgba(255, 153, 0, 0.808);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav {
+    width: 700px;
+    display: flex;
+    font-size: 25px;
+    font-weight: 600;
+    justify-content: space-around;
+}
+
+.nav__link {
+    color: white;
+    &:hover{
+        color: rgb(85, 85, 221);
+    }
+    &:active {
+        color: rgb(48, 48, 112);
+    }
+}
+
+
+
+
