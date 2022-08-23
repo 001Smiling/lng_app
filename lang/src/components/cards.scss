@@ -12,10 +12,11 @@
 .card__star {
     padding: 10px 0px 0px 0px;
     width: 30px;
-    &:hover {
-        width: 32px;
-    }
-    &:active {
-        width: 35px;
-    }
+}
+
+.card__text {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -1,7 +1,10 @@
 .footer {
     height: 100px;
-    background-color: $bgcolor;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgba(255, 153, 0, 0.808);
+    color: white;
+    font-size: 25px;
+    font-weight: 600;
 }

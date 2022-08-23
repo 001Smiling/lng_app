@@ -1,4 +1,5 @@
 import './cards.scss';
+import './vari.scss';
 import star from'./star.png';
 
 const Card = (word) => {
@@ -7,7 +8,7 @@ const Card = (word) => {
             <div className='card__container'>
                 <div className='card__word'>
                 <img className='card__star' src={star} alt="star"/>
-                   <div>{word.english}</div> 
+                   <div className='card__text'>{word.english}</div> 
                 </div>
             </div>
         </div >

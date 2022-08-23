@@ -17,10 +17,11 @@
 .nav__link {
     color: white;
     &:hover{
-        color: rgb(85, 85, 221);
+        border-bottom: 3px solid rgb(0, 0, 0);
     }
     &:active {
-        color: rgb(48, 48, 112);
+        color: rgb(0, 0, 0);
+        border: none;
     }
 }
 
