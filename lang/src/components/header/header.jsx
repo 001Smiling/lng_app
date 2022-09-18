@@ -1,14 +1,17 @@
 import React from "react";
 import './header.scss';
+import logo from '../data/logo.png';
+
 
 const Header = () => {
     return (
         <header className="header">
-            <nav className="nav">
-                <div className="nav__link">Избранное</div>
-                <div className="nav__link">В изучении</div>
-                <div className="nav__link">Выученные</div>
-            </nav>
+            <div className="header-logo">
+            <img src={logo} className="App-logo" alt="logo" />
+            <div className="header-name">Cardio</div>
+            </div>
+            <div className="header-container">
+            </div>
         </header>
     );
 }
