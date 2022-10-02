@@ -1,9 +1,11 @@
 import React from 'react';
 import './allwords.scss';
 import Newtable from "./EditableTable";
+import Header from '../header/header';
 
 
 function Section() {
+  <Header/>
   const columns = [
     { field: 'id', fieldName: '#' },
     { field: 'english', fieldName: 'Слово' },

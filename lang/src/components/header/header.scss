@@ -4,7 +4,10 @@
     display: flex;
     align-items: center;
 }
-
+.link {
+    text-decoration: none;
+    border-bottom: none;
+}
 .header-logo {
     width: 300px;
     display: flex;
@@ -36,6 +39,7 @@
     font-size: 25px;
     font-weight: 600;
     justify-content: space-around;
+    text-decoration: none;
 }
 
 .nav__link {
