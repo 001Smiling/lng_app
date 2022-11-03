@@ -89,6 +89,8 @@ function Allwords({ id, english, russian, transcription }) {
     setNewWord1({
       id: id,
       english: english,
+    })
+    setNewWord2({
       transcription:transcription,
       russian: russian
     })
