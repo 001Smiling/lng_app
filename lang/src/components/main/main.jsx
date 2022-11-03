@@ -1,15 +1,34 @@
 import React from "react";
 import Card from "../cardwords/cardcontainer";
-import Button from "../cardwords/button";
 import './main.scss';
 
-const Main = () => {
-    return (
-        <main className="main">
-            <Card />
-            <Button  />
-        </main>
-    );
-}
+class Main extends React.Component {
+    render() {
+      return (
+      <div className="main">
+        <Card/>
+        </div>
+      )
+    }
+  }
+  
+  export default Main;
 
-export default Main;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

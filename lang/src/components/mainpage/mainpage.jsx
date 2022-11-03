@@ -1,10 +1,11 @@
 import React from "react";
-import Section from '../allwords/allwords';
+import Table from '../Table/Table';
+import './mainpage.scss';
 
 function Mainpage() {
   return (
-    <div className="Mainpage">
-      <Section />
+    <div className="mainpage">
+      <Table />
     </div>
   );
 }

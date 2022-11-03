@@ -1,7 +1,12 @@
 .card {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.card1 {
+    display: flex;
 }
 .card__container {
     display: flex;
@@ -54,4 +59,10 @@ text-align: center;
  width: 90px;
  font-size: 15px;
  margin: 0px 40px;
+}
+
+.count-word {
+    margin: 30px 0px 0px 0px;
+    font-weight: 600;
+    font-size: 30px;
 }

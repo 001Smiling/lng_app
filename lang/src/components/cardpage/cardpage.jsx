@@ -1,6 +1,5 @@
 import React from "react";
 import Main from '../main/main';
-
 import './cardpage.scss';
 
 function Cardpage() {

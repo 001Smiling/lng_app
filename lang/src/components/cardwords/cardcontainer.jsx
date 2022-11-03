@@ -2,7 +2,8 @@ import { useState } from "react";
 import Cards from './cardword';
 import { wordsen } from "../data/word1";
 
-export default function Cardcont(props) {
+export default function Cardcont() {
+
     const [index, setIndex] = useState(1);
     const [setPressed] = useState(false);
     const nextCard = () => {
@@ -29,11 +30,14 @@ export default function Cardcont(props) {
             <Cards english={card.english} transcription={card.transcription} russian={card.russian} />
         )
     })
+
+
     return (
-        <div className="card">
+        <div className="card1">
             <button className='card-slide' onClick={backCard}>НАЗАД</button>
             {cardcontext[index - 1]}
             <button className='card-slide' onClick={nextCard}>ВПЕРЁД</button>
+            
         </div >
     )
 }
