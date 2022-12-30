@@ -1,0 +1,43 @@
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    padding-top: 70px;
+    background-color: white;
+}
+
+.game-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 90px;
+}
+
+.game-button{
+    height: 410px;
+    width: 60px;
+    border-radius: 5px;
+    border: none;
+    margin: 20px;
+    background-color: $secondColor;
+    &:hover {
+        background-color: $fourthColor;
+    }
+    &:active {
+        background-color: $thirdColor;
+    }
+}
+
+.game-button:hover{
+    border: 2px solid rgb(255, 255, 255);
+}
+
+.game-word{
+    text-align: center;
+    margin-top: 40px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 20px;
+    color: black;
+}

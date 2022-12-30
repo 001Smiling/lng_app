@@ -1,6 +1,6 @@
 .header {
     height: 150px;
-    background-color: rgba(255, 153, 0, 0.808);
+    background-color: $mainColor;
     display: flex;
     align-items: center;
 }
@@ -23,7 +23,7 @@
 }
 
 .header-container{
-    min-width: 1000px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,9 +34,9 @@
 }
 
 .nav {
-    width: 700px;
+    width: 400px;
     display: flex;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 600;
     justify-content: space-around;
     text-decoration: none;

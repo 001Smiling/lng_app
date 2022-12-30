@@ -1,23 +1,39 @@
-import React from 'react';
-import Allwords from './Allwords';
-import './table.scss';
-import { wordsen } from "../data/word1";
+import Row from "../Table/Row";
+import React, { useState, useEffect, useContext } from "react";
+import { WordsContext } from "../WordsApi/WordsApi";
 
-export default function Table() {  
-      const cardcontext = wordsen.map((word) =>(
-            <Allwords id = {word.id} english = {word.english} transcription = {word.transcription} russian={word.russian} />
-                  ))
-          return (<>
-    <div className="table">
-    <div  className="table-tag">
-    <div className="column" >Номер</div>
-      <div className="column" >Cлово</div>
-      <div className="column" >Транскрипция</div>
-      <div className="column" >Перевод</div>
-      <div className="column" >Опции</div>
-      </div>
-      {cardcontext}
-      </div>
-    </>
-  )
+function Table () {
+  const { words, deleteWords } = useContext(WordsContext);
+  const [wordCollection, setwordCollection] = useState(words);
+
+  useEffect(() => {
+    setwordCollection(words);
+  }, [words]);
+
+  const onDelete = (id) => {
+    deleteWords(id);
+  };
+
+  return (
+    <table className="table">
+      <thead>
+        <tr className="row-main">
+          <th className="cell-main">English</th>
+          <th className="cell-main">Transcription</th>
+          <th className="cell-main">Russian</th>
+          <th className="cell-main">Tags</th>
+          <th className="cell-main-action">Edit</th>
+          <th className="cell-main-action">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {wordCollection.map((word, index) => (
+          <Row index={index} key={word.id} {...word} onDelete={onDelete}></Row>
+        ))}
+      </tbody>
+    </table>
+  );
 }
+
+export default Table;
+

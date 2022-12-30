@@ -1,0 +1,10 @@
+
+.table{
+    display: flex;
+    flex-direction: column;
+    width: 70vw;
+    box-shadow: 0px 0px 5px 5px $secondColor;
+    margin-top: 50px;
+    font-family: $fontFamily;
+    letter-spacing: $letterSpace;
+}

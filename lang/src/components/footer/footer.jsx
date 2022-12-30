@@ -1,7 +1,5 @@
-import React from "react";
-import './footer.scss';
 
-const Footer = () => {
+function Footer () {
     return (
         <footer className="footer">
             <div>21/08/2022</div>
