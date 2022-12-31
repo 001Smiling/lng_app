@@ -1,22 +1,38 @@
-import './App.css';
-import Cardpage from './components/cardpage/cardpage';
-import Mainpage from './components/mainpage/mainpage';
-import Header from './components/header/header';
+
+import './assets/styles/base.scss'
+import { observer, inject } from 'mobx-react';
+import { useEffect } from 'react';
+import Header from './components/Header/Header'
+import Home from './components/Home/Home'
+import Game from './components/Card/Game'
+import WordsApi from './components/WordsApi/WordsApi'
 import {
+  BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
 
-function App() {
+
+const App = inject('wordStore')(observer(({wordStore}) => {
+  const {loadData} = wordStore;
+  
+  useEffect(() => {
+    loadData();
+  });
+
   return (
-    <div className="App">
-      <Header/>
-            <Routes>
-                <Route exact path="/" element={<Mainpage />} />
-                <Route exact path="/cards" element={<Cardpage />} />
-            </Routes>
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <WordsApi>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/game" element={<Game />} />
+        </Routes>
+        </WordsApi>
+      </div>
+    </Router>
   );
-}
+}))
 
 export default App;

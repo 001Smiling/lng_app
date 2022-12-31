@@ -19,7 +19,7 @@ function Card(props) {
     <div className="card">
       <div className="card-english">{props.english}</div>
       <div className="card-transcription">{props.transcription}</div>
-      <div className="button-show-container" onClick = {handleChange}>{pressed ? <div className="button-show">{props.russian}</div> : <button ref={btnRef} className="button-show">Перевод</button>}</div>
+      <div className="button-show-container" onClick = {handleChange}>{pressed ? <div>{props.russian}</div> : <button ref={btnRef} className="button-show">SHOW</button>}</div>
     </div>
   );
 }

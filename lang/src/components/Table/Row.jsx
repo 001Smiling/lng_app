@@ -1,13 +1,11 @@
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import React, { useState, useContext } from "react";
-import { WordsContext } from "../WordsApi/WordsApi";
+import React, { useState } from "react";
+import { observer, inject } from 'mobx-react';
 
-function Row(props) {
-  const [state, setState] = useState(props);
+function Row({ wordStore, word }) {
+  const [state, setState] = useState(word);
   const [pressed, setPressed] = useState(false);
   const [errors, setErrors] = useState({});
-  const { editWords } = useContext(WordsContext);
-  
 
   const checkValidation = () => {
     const newErrors = Object.keys(state).reduce((account, item) => {
@@ -35,7 +33,7 @@ function Row(props) {
     if (state.english !== "" && state.transcription !== "" && state.russian !== "" && state.tags !== "") {
       setPressed(!pressed);
     }
-    editWords(state);
+    wordStore.wordEdit(state);
   };
 
   const handleChangeEdit = (event) => {
@@ -49,28 +47,35 @@ function Row(props) {
       ...state,
       [event.target.dataset.name]: event.target.value,
     });
+
+    if (event.target.value.match(/[0-9]/)) {
+      alert("Пожалуйста, вводите только буквы");
+    }
+    
     checkValidation();
   };
 
 
   const handleChangeCansel = () => {
     setState({
-      ...props,
+      ...wordStore.words,
     });
     setPressed(!pressed);
   };
 
   const ondelete = () => {
-    props.onDelete(props.id);
+    wordStore.wordDelete(word.id);
   };
 
   return (
     <tr className="row">
       <td className="cell">
         {pressed ? (
-          <input 
-            name="english" 
-            className={ errors.english !== undefined ? "input-error" : "input-edit"}
+          <input
+            name="english"
+            className={
+              errors.english !== undefined ? "input-error" : "input-edit"
+            }
             data-name={"english"}
             value={state.english}
             onChange={handleChangeInput}
@@ -81,9 +86,11 @@ function Row(props) {
       </td>
       <td className="cell">
         {pressed ? (
-          <input 
-            name="transcription" 
-            className={errors.transcription !== undefined ? "input-error" : "input-edit"}
+          <input
+            name="transcription"
+            className={
+              errors.transcription !== undefined ? "input-error" : "input-edit"
+            }
             data-name={"transcription"}
             value={state.transcription}
             onChange={handleChangeInput}
@@ -96,7 +103,9 @@ function Row(props) {
         {pressed ? (
           <input
             name="russian"
-            className={errors.russian !== undefined ? "input-error" : "input-edit"}
+            className={
+              errors.russian !== undefined ? "input-error" : "input-edit"
+            }
             data-name={"russian"}
             value={state.russian}
             onChange={handleChangeInput}
@@ -109,7 +118,9 @@ function Row(props) {
         {pressed ? (
           <input
             name="tags"
-            className={errors.tags !== undefined ? "input-error" : "input-edit"}
+            className={
+              errors.tags !== undefined ? "input-error" : "input-edit"
+            }
             data-name={"tags"}
             value={state.tags}
             onChange={handleChangeInput}
@@ -143,4 +154,4 @@ function Row(props) {
   );
 }
 
-export default Row;
+export default inject(['wordStore'])(observer(Row));

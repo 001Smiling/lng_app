@@ -1,5 +1,5 @@
 import Table from "../Table/Table";
-import Form from "../Table/Form.jsx";
+import Form from "../Table/Form";
 
 
 function Home() {

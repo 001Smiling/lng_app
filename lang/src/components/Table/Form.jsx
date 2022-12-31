@@ -1,10 +1,8 @@
 import { useState } from "react";
+import { observer, inject } from 'mobx-react';
 
-
-const Form = () => {
-  
+const Form = ({ wordStore }) => {
   const [state, setState] = useState();
-
 
   const handleChangeInput = (event) => {
     setState({
@@ -12,15 +10,24 @@ const Form = () => {
       [event.target.dataset.name]: event.target.value,
     });
 
+    if (event.target.value.match(/[0-9]/)) {
+      alert("Пожалуйста, вводите только буквы");
+    }
   };
 
   const clearForm = () => {
     setState();
   };
 
-  const onSubmit = (event) => {
-    if (event.target.value === '') {
-      alert("Все поля должны быть заполнены!");
+  const onSubmit = () => {
+    if (
+      state.english !== "" &&
+      state.transcription !== "" &&
+      state.russian !== "" &&
+      state.tags !== ""
+    ) {
+      wordStore.wordAdd(state);
+      setState();
     }
   };
 
@@ -76,4 +83,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default inject(['wordStore'])(observer(Form));
