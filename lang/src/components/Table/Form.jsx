@@ -18,9 +18,15 @@ const Form = () => {
     setState();
   };
 
-  const onSubmit = (event) => {
-    if (event.target.value === '') {
-      alert("Все поля должны быть заполнены!");
+  const onSubmit = () => {
+    if (
+      state.english !== "" &&
+      state.transcription !== "" &&
+      state.russian !== "" &&
+      state.tags !== ""
+    ) {
+      addWords(state);
+      setState();
     }
   };
 
