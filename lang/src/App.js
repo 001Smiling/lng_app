@@ -1,4 +1,4 @@
-import './App.css';
+import './assets/styles/base.scss'
 import Cardpage from './components/cardpage/cardpage';
 import Mainpage from './components/mainpage/mainpage';
 import Header from './components/header/header';
